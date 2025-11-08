@@ -11,7 +11,70 @@
       crossorigin="anonymous"
     />
   </head>
+  <style>
+    .navbar-brand img {
+      max-height: 40px;
+    }
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      margin: 0 5px;
+      transition: color 0.3s;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #0d6efd !important;
+    }
+    .navbar-toggler {
+      border: none;
+      padding: 4px 8px;
+    }
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+  </style>
   <body>
+    <header>
+      <!-- Navbar -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm"
+      >
+        <div class="container">
+          <!-- Logo on the left -->
+          <a class="navbar-brand" href="#"> DocTime </a>
+
+          <!-- Mobile toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Navigation menu -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Doctor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Department</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
