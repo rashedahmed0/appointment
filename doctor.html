@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Doctors - Medical Center</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      /* Doctors Section Styles */
+      .doctors-section {
+        padding: 100px 0;
+        background-color: #f8f9fa;
+      }
+
+      .section-title {
+        position: relative;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        font-size: 1.1rem;
+        color: #6c757d;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .section-title .title-border {
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #0d6efd, #6c63ff);
+        margin: 20px auto;
+      }
+
+      /* Doctor Cards */
+      .doctor-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        margin-bottom: 30px;
+        height: 100%;
+      }
+
+      .doctor-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .doctor-img {
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .doctor-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .doctor-card:hover .doctor-img img {
+        transform: scale(1.1);
+      }
+
+      .doctor-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        padding: 20px;
+        color: white;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .doctor-card:hover .doctor-overlay {
+        transform: translateY(0);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .social-links a {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background: #0d6efd;
+        transform: translateY(-3px);
+      }
+
+      .doctor-info {
+        padding: 25px;
+      }
+
+      .doctor-info h4 {
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 5px;
+      }
+
+      .doctor-specialty {
+        color: #0d6efd;
+        font-weight: 600;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .doctor-experience {
+        color: #6c757d;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+      }
+
+      .doctor-bio {
+        color: #6c757d;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .doctor-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+      }
+
+      .doctor-features li {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      .doctor-features i {
+        color: #0d6efd;
+        margin-right: 10px;
+        font-size: 0.8rem;
+      }
+
+      .btn-appointment {
+        background: linear-gradient(135deg, #0d6efd, #6c63ff);
+        border: none;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        width: 100%;
+      }
+
+      .btn-appointment:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
+      }
+
+      /* Department Filter */
+      .department-filter {
+        margin-bottom: 40px;
+      }
+
+      .filter-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .filter-btn {
+        background: white;
+        border: 2px solid #e9ecef;
+        padding: 10px 25px;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: linear-gradient(135deg, #0d6efd, #6c63ff);
+        color: white;
+        border-color: #0d6efd;
+      }
+
+      /* Stats Section */
+      .doctor-stats {
+        background: linear-gradient(135deg, #0d6efd, #6c63ff);
+        padding: 80px 0;
+        color: white;
+        margin-top: 50px;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .stat-text {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 80px 0;
+        background-color: #2c3e50;
+        color: white;
+        text-align: center;
+      }
+
+      .cta-section h3 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+      }
+
+      .cta-section p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+      }
+
+      .btn-cta {
+        background: white;
+        color: #2c3e50;
+        border: none;
+        padding: 12px 35px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .filter-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .filter-btn {
+          width: 200px;
+        }
+      }
+      .banner {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        color: white;
+        position: relative;
+      }
+
+      .banner-content {
+        z-index: 2;
+        position: relative;
+      }
+
+      .banner h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm"
+    >
+      <div class="container">
+        <!-- Logo on the left -->
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://via.placeholder.com/150x40/0d6efd/ffffff?text=MEDICAL+CENTER"
+            alt="Logo"
+          />
+        </a>
+
+        <!-- Mobile toggle button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Doctors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Departments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Banner with Dark Overlay -->
+    <section class="banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center banner-content">
+            <h1>Doctor</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Doctors Section -->
+    <section class="doctors-section" id="doctors">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center section-title">
+            <h2>Meet Our Specialist Doctors</h2>
+            <p>
+              Our team of highly qualified and experienced medical professionals
+              is dedicated to providing you with the best possible care.
+            </p>
+            <div class="title-border"></div>
+          </div>
+        </div>
+
+        <!-- Department Filter -->
+        <div class="row">
+          <div class="col-12 department-filter">
+            <div class="filter-buttons">
+              <button class="filter-btn active" data-filter="all">
+                All Departments
+              </button>
+              <button class="filter-btn" data-filter="cardiology">
+                Cardiology
+              </button>
+              <button class="filter-btn" data-filter="neurology">
+                Neurology
+              </button>
+              <button class="filter-btn" data-filter="orthopedics">
+                Orthopedics
+              </button>
+              <button class="filter-btn" data-filter="pediatrics">
+                Pediatrics
+              </button>
+              <button class="filter-btn" data-filter="surgery">Surgery</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctors Grid -->
+        <div class="row">
+          <!-- Doctor 1 -->
+          <div class="col-lg-4 col-md-6" data-department="cardiology">
+            <div class="doctor-card">
+              <div class="doctor-img">
+                <img
+                  src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Dr. Sarah Johnson"
+                />
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-info">
+                <h4>Dr. Sarah Johnson</h4>
+                <span class="doctor-specialty">Cardiologist</span>
+                <div class="doctor-experience">15+ Years of Experience</div>
+                <p class="doctor-bio">
+                  Specialized in interventional cardiology and heart disease
+                  prevention. Dr. Johnson has performed over 2,000 successful
+                  cardiac procedures.
+                </p>
+                <ul class="doctor-features">
+                  <li>
+                    <i class="fas fa-check"></i> Interventional Cardiology
+                  </li>
+                  <li><i class="fas fa-check"></i> Heart Disease Prevention</li>
+                  <li><i class="fas fa-check"></i> Cardiac Rehabilitation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor 2 -->
+          <div class="col-lg-4 col-md-6" data-department="neurology">
+            <div class="doctor-card">
+              <div class="doctor-img">
+                <img
+                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Dr. Michael Chen"
+                />
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-info">
+                <h4>Dr. Michael Chen</h4>
+                <span class="doctor-specialty">Neurologist</span>
+                <div class="doctor-experience">12+ Years of Experience</div>
+                <p class="doctor-bio">
+                  Expert in treating neurological disorders including epilepsy,
+                  stroke, and neurodegenerative diseases. Published researcher
+                  in clinical neurology.
+                </p>
+                <ul class="doctor-features">
+                  <li><i class="fas fa-check"></i> Epilepsy Treatment</li>
+                  <li><i class="fas fa-check"></i> Stroke Management</li>
+                  <li>
+                    <i class="fas fa-check"></i> Neurodegenerative Diseases
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor 3 -->
+          <div class="col-lg-4 col-md-6" data-department="orthopedics">
+            <div class="doctor-card">
+              <div class="doctor-img">
+                <img
+                  src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80"
+                  alt="Dr. Robert Williams"
+                />
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-info">
+                <h4>Dr. Robert Williams</h4>
+                <span class="doctor-specialty">Orthopedic Surgeon</span>
+                <div class="doctor-experience">18+ Years of Experience</div>
+                <p class="doctor-bio">
+                  Specialized in joint replacement, sports injuries, and spinal
+                  surgery. Pioneer in minimally invasive orthopedic procedures.
+                </p>
+                <ul class="doctor-features">
+                  <li><i class="fas fa-check"></i> Joint Replacement</li>
+                  <li><i class="fas fa-check"></i> Sports Medicine</li>
+                  <li><i class="fas fa-check"></i> Spinal Surgery</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor 4 -->
+          <div class="col-lg-4 col-md-6" data-department="pediatrics">
+            <div class="doctor-card">
+              <div class="doctor-img">
+                <img
+                  src="https://images.unsplash.com/photo-1594824947933-d0501ba2fe65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Dr. Emily Rodriguez"
+                />
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-info">
+                <h4>Dr. Emily Rodriguez</h4>
+                <span class="doctor-specialty">Pediatrician</span>
+                <div class="doctor-experience">10+ Years of Experience</div>
+                <p class="doctor-bio">
+                  Dedicated to providing comprehensive healthcare for children
+                  from infancy through adolescence. Special interest in
+                  childhood nutrition and development.
+                </p>
+                <ul class="doctor-features">
+                  <li><i class="fas fa-check"></i> Child Development</li>
+                  <li><i class="fas fa-check"></i> Vaccination & Prevention</li>
+                  <li><i class="fas fa-check"></i> Childhood Nutrition</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor 5 -->
+          <div class="col-lg-4 col-md-6" data-department="surgery">
+            <div class="doctor-card">
+              <div class="doctor-img">
+                <img
+                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80"
+                  alt="Dr. James Anderson"
+                />
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-researchgate"></i></a>
+                    <a href="#"><i class="fas fa-graduation-cap"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-info">
+                <h4>Dr. James Anderson</h4>
+                <span class="doctor-specialty">General Surgeon</span>
+                <div class="doctor-experience">14+ Years of Experience</div>
+                <p class="doctor-bio">
+                  Expert in minimally invasive and laparoscopic surgeries.
+                  Specializes in gastrointestinal and abdominal procedures with
+                  excellent patient outcomes.
+                </p>
+                <ul class="doctor-features">
+                  <li><i class="fas fa-check"></i> Laparoscopic Surgery</li>
+                  <li><i class="fas fa-check"></i> Gastrointestinal Surgery</li>
+                  <li><i class="fas fa-check"></i> Trauma Surgery</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor 6 -->
+          <div class="col-lg-4 col-md-6" data-department="cardiology">
+            <div class="doctor-card">
+              <div class="doctor-img">
+                <img
+                  src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80"
+                  alt="Dr. Lisa Thompson"
+                />
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fas fa-globe"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-info">
+                <h4>Dr. Lisa Thompson</h4>
+                <span class="doctor-specialty">Cardiac Surgeon</span>
+                <div class="doctor-experience">16+ Years of Experience</div>
+                <p class="doctor-bio">
+                  Renowned for complex cardiac surgeries including bypass and
+                  valve replacement. Committed to advancing surgical techniques
+                  and patient safety.
+                </p>
+                <ul class="doctor-features">
+                  <li><i class="fas fa-check"></i> Bypass Surgery</li>
+                  <li><i class="fas fa-check"></i> Valve Replacement</li>
+                  <li><i class="fas fa-check"></i> Congenital Heart Defects</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Doctor Stats Section -->
+    <section class="doctor-stats">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-6 mb-4 mb-md-0">
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-text">Specialist Doctors</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mb-4 mb-md-0">
+            <div class="stat-item">
+              <div class="stat-number">25k+</div>
+              <div class="stat-text">Successful Treatments</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-text">Patient Satisfaction</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-item">
+              <div class="stat-number">15+</div>
+              <div class="stat-text">Medical Specialties</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h3>Ready to Schedule an Appointment?</h3>
+            <p>
+              Our team of specialist doctors is here to provide you with the
+              highest quality medical care. Book your appointment today and take
+              the first step towards better health.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript for Filter Functionality -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const doctorCards = document.querySelectorAll(".doctor-card");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            const filterValue = this.getAttribute("data-filter");
+
+            // Show/hide doctor cards based on filter
+            doctorCards.forEach((card) => {
+              const department =
+                card.parentElement.getAttribute("data-department");
+
+              if (filterValue === "all" || filterValue === department) {
+                card.parentElement.style.display = "block";
+              } else {
+                card.parentElement.style.display = "none";
+              }
+            });
+          });
+        });
+
+        // Add hover effect to appointment buttons
+        const appointmentButtons =
+          document.querySelectorAll(".btn-appointment");
+        appointmentButtons.forEach((button) => {
+          button.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-3px)";
+          });
+
+          button.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0)";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

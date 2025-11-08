@@ -1,0 +1,160 @@
+/* Table */
+table tr td {
+  vertical-align: middle;
+}
+
+td button {
+  margin: 5px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+td button:hover {
+  transform: scale(1.05);
+}
+
+td button i {
+  font-size: 18px;
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #0d6efd, #4e8ef7);
+  color: #fff;
+  border-bottom: none;
+  padding: 1.2rem 1.5rem;
+}
+
+.modal-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.modal-body {
+  background-color: #f9fafc;
+  padding: 1.8rem;
+}
+
+.modal-body form {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Profile Image Section */
+.imgholder {
+  text-align: center;
+  flex: 1 1 35%;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.imgholder .upload {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.imgholder .upload i {
+  font-size: 28px;
+  color: #0d6efd;
+  transition: color 0.3s ease;
+}
+
+.imgholder .upload:hover i {
+  color: #0056b3;
+}
+
+.imgholder img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+/* Input Fields */
+.inputField {
+  flex: 1 1 60%;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.inputField > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.inputField label {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.inputField input,
+.inputField select,
+.inputField textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #ced4da;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #f8f9fa;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inputField input:focus,
+.inputField select:focus,
+.inputField textarea:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+  outline: none;
+}
+
+/* Modal Footer */
+.modal-footer {
+  border-top: none;
+  background: #f9fafc;
+  padding: 1rem 1.5rem;
+}
+
+.modal-footer .btn {
+  padding: 10px 22px;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.modal-footer .btn-primary {
+  background: linear-gradient(135deg, #0d6efd, #4e8ef7);
+  border: none;
+}
+
+.modal-footer .btn-primary:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0b5ed7, #2563eb);
+}
+
+.modal-footer .btn-secondary {
+  background: #e9ecef;
+  color: #333;
+  border: none;
+}
+
+.modal-footer .btn-secondary:hover {
+  background: #dee2e6;
+}

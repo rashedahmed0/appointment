@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Medical Center</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .banner {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        color: white;
+        position: relative;
+      }
+
+      .banner-content {
+        z-index: 2;
+        position: relative;
+      }
+
+      .banner h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      .banner p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+      }
+      /* About Section Styles */
+      .about-section {
+        padding: 100px 0;
+        background-color: #f8f9fa;
+      }
+
+      .section-title {
+        position: relative;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 15px;
+      }
+
+      .section-title .title-border {
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #0d6efd, #6c63ff);
+        margin: 0 auto;
+      }
+
+      .about-content {
+        padding-right: 30px;
+      }
+
+      .about-image {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.5s;
+      }
+
+      .about-image:hover img {
+        transform: scale(1.03);
+      }
+
+      .experience-badge {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        background: linear-gradient(135deg, #0d6efd, #6c63ff);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(13, 110, 253, 0.3);
+      }
+
+      .experience-badge h3 {
+        font-size: 2.5rem;
+        margin: 0;
+        font-weight: 700;
+      }
+
+      .experience-badge p {
+        margin: 0;
+        font-weight: 500;
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 30px 0;
+      }
+
+      .feature-list li {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .feature-list i {
+        color: #0d6efd;
+        margin-right: 15px;
+        margin-top: 5px;
+        font-size: 1.2rem;
+      }
+
+      .stats-section {
+        background: linear-gradient(135deg, #0d6efd, #6c63ff);
+        padding: 80px 0;
+        color: white;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .stat-text {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .team-section {
+        padding: 100px 0;
+      }
+
+      .team-card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+        margin-bottom: 30px;
+      }
+
+      .team-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .team-img {
+        height: 300px;
+        overflow: hidden;
+      }
+
+      .team-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .team-card:hover .team-img img {
+        transform: scale(1.1);
+      }
+
+      .team-info {
+        padding: 25px;
+        text-align: center;
+      }
+
+      .team-info h4 {
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      .team-info p {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+
+      .btn-custom {
+        background: linear-gradient(135deg, #0d6efd, #6c63ff);
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s;
+      }
+
+      .btn-custom:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
+      }
+
+      /* Mission & Vision Section */
+      .mission-vision {
+        padding: 80px 0;
+        background-color: #f8f9fa;
+      }
+
+      .mission-box,
+      .vision-box {
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        height: 100%;
+        transition: transform 0.3s;
+      }
+
+      .mission-box:hover,
+      .vision-box:hover {
+        transform: translateY(-10px);
+      }
+
+      .mission-icon,
+      .vision-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px;
+        font-size: 1.8rem;
+      }
+
+      .mission-icon {
+        background: rgba(13, 110, 253, 0.1);
+        color: #0d6efd;
+      }
+
+      .vision-icon {
+        background: rgba(108, 99, 255, 0.1);
+        color: #6c63ff;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm"
+    >
+      <div class="container">
+        <!-- Logo on the left -->
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://via.placeholder.com/150x40/0d6efd/ffffff?text=MEDICAL+CENTER"
+            alt="Logo"
+          />
+        </a>
+
+        <!-- Mobile toggle button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Doctors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Departments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Banner with Dark Overlay -->
+    <section class="banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center banner-content">
+            <h1>About Us</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Us Section -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center section-title">
+            <h2>About Our Medical Center</h2>
+            <p class="lead">
+              Providing exceptional healthcare with compassion and innovation
+              for over 25 years
+            </p>
+            <div class="title-border"></div>
+          </div>
+        </div>
+
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="about-content">
+              <h3 class="mb-4">
+                We Are Committed to Your Health and Well-being
+              </h3>
+              <p class="mb-4">
+                Founded in 1998, Medical Center has grown to become one of the
+                region's most trusted healthcare providers. Our journey began
+                with a simple mission: to deliver exceptional medical care that
+                puts patients first.
+              </p>
+
+              <p class="mb-4">
+                Today, we continue to uphold that mission through
+                state-of-the-art facilities, cutting-edge technology, and a team
+                of dedicated healthcare professionals who are leaders in their
+                respective fields.
+              </p>
+
+              <ul class="feature-list">
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <div>
+                    <strong>Comprehensive Care</strong>
+                    <p class="mb-0">
+                      From routine check-ups to complex procedures, we offer a
+                      full spectrum of medical services.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <div>
+                    <strong>Patient-Centered Approach</strong>
+                    <p class="mb-0">
+                      We listen to your concerns and involve you in every step
+                      of your healthcare journey.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <div>
+                    <strong>Advanced Technology</strong>
+                    <p class="mb-0">
+                      Our facilities are equipped with the latest medical
+                      technology for accurate diagnosis and treatment.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+
+              <a href="#" class="btn btn-custom">Learn More About Us</a>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="about-image">
+              <img
+                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2050&q=80"
+                alt="Medical Center"
+              />
+              <div class="experience-badge">
+                <h3>25+</h3>
+                <p>Years of Experience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-6 mb-4 mb-md-0">
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-text">Specialist Doctors</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mb-4 mb-md-0">
+            <div class="stat-item">
+              <div class="stat-number">10k+</div>
+              <div class="stat-text">Happy Patients</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-item">
+              <div class="stat-number">15+</div>
+              <div class="stat-text">Medical Departments</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-item">
+              <div class="stat-number">24/7</div>
+              <div class="stat-text">Emergency Services</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="mission-box text-center">
+              <div class="mission-icon">
+                <i class="fas fa-bullseye"></i>
+              </div>
+              <h3>Our Mission</h3>
+              <p>
+                To provide compassionate, accessible, and high-quality
+                healthcare to our community. We strive to improve the health and
+                well-being of our patients through excellent clinical care,
+                education, and research.
+              </p>
+              <p>
+                We are committed to treating each patient with dignity, respect,
+                and personalized attention while maintaining the highest
+                standards of medical ethics.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="vision-box text-center">
+              <div class="vision-icon">
+                <i class="fas fa-eye"></i>
+              </div>
+              <h3>Our Vision</h3>
+              <p>
+                To be the leading healthcare institution recognized for clinical
+                excellence, innovative treatments, and outstanding patient
+                experiences. We envision a future where every individual in our
+                community has access to world-class medical care.
+              </p>
+              <p>
+                We aim to set new standards in healthcare delivery through
+                continuous improvement and technological advancement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership Team Section -->
+    <section class="team-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center section-title">
+            <h2>Meet Our Leadership Team</h2>
+            <p class="lead">
+              Our experienced leaders guide our mission of providing exceptional
+              healthcare
+            </p>
+            <div class="title-border"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="team-card">
+              <div class="team-img">
+                <img
+                  src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Dr. Sarah Johnson"
+                />
+              </div>
+              <div class="team-info">
+                <h4>Dr. Sarah Johnson</h4>
+                <p>Chief Medical Officer</p>
+                <p class="text-muted">
+                  With over 20 years of experience in healthcare administration,
+                  Dr. Johnson leads our clinical teams with expertise and
+                  compassion.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="team-card">
+              <div class="team-img">
+                <img
+                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Dr. Michael Chen"
+                />
+              </div>
+              <div class="team-info">
+                <h4>Dr. Michael Chen</h4>
+                <p>Head of Surgery</p>
+                <p class="text-muted">
+                  A renowned surgeon with numerous publications, Dr. Chen brings
+                  innovative surgical techniques to our medical center.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="team-card">
+              <div class="team-img">
+                <img
+                  src="https://images.unsplash.com/photo-1594824947933-d0501ba2fe65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Dr. Emily Rodriguez"
+                />
+              </div>
+              <div class="team-info">
+                <h4>Dr. Emily Rodriguez</h4>
+                <p>Director of Patient Care</p>
+                <p class="text-muted">
+                  Dr. Rodriguez ensures that every patient receives
+                  personalized, compassionate care throughout their healthcare
+                  journey.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
