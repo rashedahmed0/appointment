@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Medical Center</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      .banner {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("./img/zoshua-colah-_fdWqec7VRo-unsplash.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        color: white;
+        position: relative;
+      }
+
+      .banner-content {
+        z-index: 2;
+        position: relative;
+      }
+
+      .banner h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Contact Section Styles */
+      .contact-section {
+        padding: 100px 0;
+        background-color: #f8f9fa;
+      }
+
+      .section-title {
+        position: relative;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        font-size: 1.1rem;
+        color: #6c757d;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .section-title .title-border {
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #0d6efd, #6c63ff);
+        margin: 20px auto;
+      }
+
+      /* Contact Cards */
+      .contact-card {
+        background: white;
+        border-radius: 15px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        margin-bottom: 30px;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .contact-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px;
+        font-size: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover .contact-icon {
+        transform: scale(1.1);
+      }
+
+      .contact-card h4 {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 15px;
+      }
+
+      .contact-card p {
+        color: #6c757d;
+        margin-bottom: 20px;
+      }
+
+      .contact-link {
+        color: #0d6efd;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .contact-link:hover {
+        color: #0b5ed7;
+      }
+
+      /* Contact Form */
+      .contact-form-container {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        margin-top: 30px;
+      }
+
+      .form-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-label {
+        font-weight: 500;
+        color: #2c3e50;
+        margin-bottom: 8px;
+      }
+
+      .form-control {
+        border: 2px solid #e9ecef;
+        border-radius: 10px;
+        padding: 12px 15px;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.1);
+      }
+
+      textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .btn-submit {
+        background: linear-gradient(135deg, #0d6efd, #6c63ff);
+        border: none;
+        color: white;
+        padding: 12px 35px;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        width: 100%;
+      }
+
+      .btn-submit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
+      }
+
+      /* Emergency Contact */
+      .emergency-contact {
+        background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        color: white;
+        text-align: center;
+        padding: 60px 0;
+        margin-top: 80px;
+      }
+
+      .emergency-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .emergency-contact h3 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .emergency-contact p {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+        opacity: 0.9;
+      }
+
+      .emergency-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .btn-emergency {
+        background: white;
+        color: #ff6b6b;
+        border: none;
+        padding: 12px 35px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-emergency:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+      }
+
+      /* Map Section */
+      .map-section {
+        padding: 80px 0;
+        background-color: white;
+      }
+
+      .map-container {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        height: 400px;
+      }
+
+      .map-placeholder {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+      }
+
+      /* Business Hours */
+      .hours-section {
+        padding: 60px 0;
+        background-color: #f8f9fa;
+      }
+
+      .hours-card {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .hours-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .hours-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .hours-list li {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .hours-list li:last-child {
+        border-bottom: none;
+      }
+
+      .day {
+        font-weight: 500;
+        color: #2c3e50;
+      }
+
+      .time {
+        color: #0d6efd;
+        font-weight: 500;
+      }
+
+      .emergency-hours {
+        background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .contact-form-container {
+          padding: 30px 20px;
+        }
+
+        .emergency-number {
+          font-size: 2rem;
+        }
+
+        .hours-card {
+          padding: 30px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm"
+    >
+      <div class="container">
+        <!-- Logo on the left -->
+        <a class="navbar-brand" href="#"> DocTime </a>
+
+        <!-- Mobile toggle button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./doctor.html">Doctors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./departmnet.html">Departments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Banner with Dark Overlay -->
+    <section class="banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center banner-content">
+            <h1>Contact us</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center section-title">
+            <h2>Contact Us</h2>
+            <p>
+              We're here to help you with all your healthcare needs. Get in
+              touch with us through any of the following methods.
+            </p>
+            <div class="title-border"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Phone Contact -->
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-card">
+              <div
+                class="contact-icon"
+                style="background: rgba(13, 110, 253, 0.1); color: #0d6efd"
+              >
+                <i class="fas fa-phone"></i>
+              </div>
+              <h4>Phone</h4>
+              <p>
+                Speak directly with our reception staff during business hours
+              </p>
+              <a href="tel:+11234567890" class="contact-link">01407707709</a>
+            </div>
+          </div>
+
+          <!-- Email Contact -->
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-card">
+              <div
+                class="contact-icon"
+                style="background: rgba(40, 167, 69, 0.1); color: #28a745"
+              >
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h4>Email</h4>
+              <p>Send us your queries and we'll respond within 24 hours</p>
+              <a href="mailto:info@medicalcenter.com" class="contact-link"
+                >rashedahommod0@gmail.com</a
+              >
+            </div>
+          </div>
+
+          <!-- Visit Us -->
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-card">
+              <div
+                class="contact-icon"
+                style="background: rgba(255, 193, 7, 0.1); color: #ffc107"
+              >
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h4>Visit Us</h4>
+              <p>Come see us at our main hospital location</p>
+              <a href="#map" class="contact-link"
+                >Ideal College , Central Road , Dhaka</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- Company Info -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h5>Medical Center</h5>
+            <p style="color: #bdc3c7; line-height: 1.6; margin-bottom: 25px">
+              Providing exceptional healthcare services with compassion and
+              innovation for over 25 years. Your health and well-being are our
+              top priorities.
+            </p>
+            <div class="social-links">
+              <a href="#" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" title="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" title="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" title="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5>Quick Links</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="./index.html"
+                  ><i class="fas fa-chevron-right"></i> Home</a
+                >
+              </li>
+              <li>
+                <a href="./about.html"
+                  ><i class="fas fa-chevron-right"></i> About Us</a
+                >
+              </li>
+              <li>
+                <a href="./doctor.html"
+                  ><i class="fas fa-chevron-right"></i> Doctors</a
+                >
+              </li>
+              <li>
+                <a href="./departmnet.html"
+                  ><i class="fas fa-chevron-right"></i> Departments</a
+                >
+              </li>
+              <li>
+                <a href="./contact.html"
+                  ><i class="fas fa-chevron-right"></i> Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Medical Services -->
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5>Our Services</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Cardiology</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Neurology</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Orthopedics</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Pediatrics</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Surgery</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h5>Contact Information</h5>
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="info-text">
+                  <strong>Our Location</strong>
+                  <span>Ideal college<br />Central Road, Dhaka</span>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <div class="info-text">
+                  <strong>Phone Number</strong>
+                  <span>01407707709<br />Mon-Fri: 8AM-6PM</span>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <div class="info-text">
+                  <strong>Email Address</strong>
+                  <span
+                    >rashedahommod0@gmail.com<br />rialahmed0@gmail.com</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript for Form Handling -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contactForm");
+
+        // Form submission handler
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = {
+            firstName: document.getElementById("firstName").value,
+            lastName: document.getElementById("lastName").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
+            department: document.getElementById("department").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value,
+          };
+
+          // Here you would typically send the data to a server
+          // For this example, we'll just show a success message
+
+          // Show success message
+          alert(
+            "Thank you for your message! We will get back to you within 24 hours."
+          );
+
+          // Reset form
+          contactForm.reset();
+        });
+
+        // Add hover effects to contact cards
+        const contactCards = document.querySelectorAll(".contact-card");
+        contactCards.forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-10px)";
+          });
+
+          card.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0)";
+          });
+        });
+
+        // Smooth scroll for map link
+        const mapLink = document.querySelector('a[href="#map"]');
+        if (mapLink) {
+          mapLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector("#map").scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

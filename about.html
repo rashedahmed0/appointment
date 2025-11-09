@@ -14,13 +14,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="./style.css" />
     <style>
       .banner {
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.7),
             rgba(0, 0, 0, 0.7)
           ),
-          url("https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+          url("./img/zoshua-colah-_fdWqec7VRo-unsplash.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -267,17 +268,13 @@
     </style>
   </head>
   <body>
+    <!-- Navbar -->
     <nav
       class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm"
     >
       <div class="container">
         <!-- Logo on the left -->
-        <a class="navbar-brand" href="#">
-          <img
-            src="https://via.placeholder.com/150x40/0d6efd/ffffff?text=MEDICAL+CENTER"
-            alt="Logo"
-          />
-        </a>
+        <a class="navbar-brand" href="#"> DocTime </a>
 
         <!-- Mobile toggle button -->
         <button
@@ -293,19 +290,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
+              <a class="nav-link active" href="./index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About Us</a>
+              <a class="nav-link" href="./about.html">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Doctors</a>
+              <a class="nav-link" href="./doctor.html">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Departments</a>
+              <a class="nav-link" href="./departmnet.html">Departments</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
+              <a class="nav-link" href="./contact.html">Contact Us</a>
             </li>
           </ul>
         </div>
@@ -441,52 +438,6 @@
       </div>
     </section>
 
-    <!-- Mission & Vision Section -->
-    <section class="mission-vision">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 mb-5 mb-lg-0">
-            <div class="mission-box text-center">
-              <div class="mission-icon">
-                <i class="fas fa-bullseye"></i>
-              </div>
-              <h3>Our Mission</h3>
-              <p>
-                To provide compassionate, accessible, and high-quality
-                healthcare to our community. We strive to improve the health and
-                well-being of our patients through excellent clinical care,
-                education, and research.
-              </p>
-              <p>
-                We are committed to treating each patient with dignity, respect,
-                and personalized attention while maintaining the highest
-                standards of medical ethics.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="vision-box text-center">
-              <div class="vision-icon">
-                <i class="fas fa-eye"></i>
-              </div>
-              <h3>Our Vision</h3>
-              <p>
-                To be the leading healthcare institution recognized for clinical
-                excellence, innovative treatments, and outstanding patient
-                experiences. We envision a future where every individual in our
-                community has access to world-class medical care.
-              </p>
-              <p>
-                We aim to set new standards in healthcare delivery through
-                continuous improvement and technological advancement.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Leadership Team Section -->
     <section class="team-section">
       <div class="container">
@@ -564,6 +515,123 @@
       </div>
     </section>
 
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- Company Info -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h5>Medical Center</h5>
+            <p style="color: #bdc3c7; line-height: 1.6; margin-bottom: 25px">
+              Providing exceptional healthcare services with compassion and
+              innovation for over 25 years. Your health and well-being are our
+              top priorities.
+            </p>
+            <div class="social-links">
+              <a href="#" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" title="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" title="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" title="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5>Quick Links</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="./index.html"
+                  ><i class="fas fa-chevron-right"></i> Home</a
+                >
+              </li>
+              <li>
+                <a href="./about.html"
+                  ><i class="fas fa-chevron-right"></i> About Us</a
+                >
+              </li>
+              <li>
+                <a href="./doctor.html"
+                  ><i class="fas fa-chevron-right"></i> Doctors</a
+                >
+              </li>
+              <li>
+                <a href="./departmnet.html"
+                  ><i class="fas fa-chevron-right"></i> Departments</a
+                >
+              </li>
+              <li>
+                <a href="./contact.html"
+                  ><i class="fas fa-chevron-right"></i> Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Medical Services -->
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5>Our Services</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Cardiology</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Neurology</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Orthopedics</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Pediatrics</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Surgery</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h5>Contact Information</h5>
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="info-text">
+                  <strong>Our Location</strong>
+                  <span>Ideal college<br />Central Road, Dhaka</span>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <div class="info-text">
+                  <strong>Phone Number</strong>
+                  <span>01407707709<br />Mon-Fri: 8AM-6PM</span>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <div class="info-text">
+                  <strong>Email Address</strong>
+                  <span
+                    >rashedahommod0@gmail.com<br />rialahmed0@gmail.com</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   </body>
